@@ -2,29 +2,36 @@ public class Point {
     private int x;
     private int y;
 
-    public Point(int x, int y){
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX(){
+    public int getX() {
         return x;
     }
 
-    public int getY(){
+    public int getY() {
         return y;
     }
 
-    public void setX(int x){
+    public void setX(int x) {
         this.x = x;
     }
 
-    public void setY(int y){
-        this.y=y;
-
+    public void setY(int y) {
+        this.y = y;
     }
 
-    public double distanceTo(Point other){
-        return Math.sqrt((this.x - other.x)^2 + (this.y - other.y)^2);
+    public double distanceTo(Point other) {
+        int dx = other.getX() - this.x;
+        int dy = other.getY() - this.y;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    public Point midpointWith(Point other) {
+        int midX = (this.x + other.getX()) / 2;
+        int midY = (this.y + other.getY()) / 2;
+        return new Point(midX, midY);
     }
 }
